@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:32:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/05 17:57:31 by codespace        ###   ########.fr       */
+/*   Created: 2024/10/05 17:59:05 by codespace         #+#    #+#             */
+/*   Updated: 2024/10/05 18:05:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+void	ft_putnbr(int nb)
 {
-    va_list args;
-    int p_count;
-
-    va_start(args, format);
-    p_count = 0;
-    while (*format)
-    {
-        if(*format == '%' && (*(format + 1) != '\0'))
-        {
-            format++;
-            p_count += placeholder(*format, args); 
-        }
-        else
-        {
-            write(1, format, 1);
-            p_count++;
-        }
-    }
-    va_end(args);
-    return(p_count);
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
+	}
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+		ft_putnbr(nb);
+	}
+	else if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		ft_putchar(nb + 48);
+	}
 }

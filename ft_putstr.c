@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:32:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/05 17:57:31 by codespace        ###   ########.fr       */
+/*   Created: 2024/10/05 18:01:09 by codespace         #+#    #+#             */
+/*   Updated: 2024/10/05 18:01:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+void	ft_putstr(char *str)
 {
-    va_list args;
-    int p_count;
+	int	i;
 
-    va_start(args, format);
-    p_count = 0;
-    while (*format)
-    {
-        if(*format == '%' && (*(format + 1) != '\0'))
-        {
-            format++;
-            p_count += placeholder(*format, args); 
-        }
-        else
-        {
-            write(1, format, 1);
-            p_count++;
-        }
-    }
-    va_end(args);
-    return(p_count);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write (1, &str[i], 1);
+		i++;
+	}
 }
