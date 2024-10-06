@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:32:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 11:20:38 by codespace        ###   ########.fr       */
+/*   Created: 2024/10/06 11:07:01 by codespace         #+#    #+#             */
+/*   Updated: 2024/10/06 11:13:26 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int ft_putptr(void *ptr)
 {
-    va_list args;
     int p_count;
 
-    va_start(args, format);
     p_count = 0;
-    while (*format)
-    {
-        if(*format == '%' && (*(format + 1) != '\0'))
-        {
-            format++;
-            p_count += ft_printf_conversion(*format, args); 
-        }
-        else
-        {
-            write(1, format, 1);
-            p_count++;
-        }
-    }
-    va_end(args);
-    return(p_count);
+    p_count += ft_putstr("0x");
+    p_count += ft_putnbr_hex_lower((unsigned long)ptr);
+    return (p_count);
 }

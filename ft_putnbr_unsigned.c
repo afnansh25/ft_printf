@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:32:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 11:20:38 by codespace        ###   ########.fr       */
+/*   Created: 2024/10/06 11:14:44 by codespace         #+#    #+#             */
+/*   Updated: 2024/10/06 11:17:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int ft_putnbr_unsigned(unsigned long nb)
 {
-    va_list args;
     int p_count;
 
-    va_start(args, format);
     p_count = 0;
-    while (*format)
-    {
-        if(*format == '%' && (*(format + 1) != '\0'))
-        {
-            format++;
-            p_count += ft_printf_conversion(*format, args); 
-        }
-        else
-        {
-            write(1, format, 1);
-            p_count++;
-        }
-    }
-    va_end(args);
-    return(p_count);
+    if (nb > 9)
+		p_count += ft_putnbr_unsigned(nb / 10);
+	p_count += ft_putchar((nb % 10) + 48);
+	return (p_count);
 }

@@ -6,13 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:01:31 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/05 18:04:26 by codespace        ###   ########.fr       */
+/*   Updated: 2024/10/06 09:54:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putchar(char c)
+int ft_putchar(char c)
 {
     write(1, &c, 1);
+    return (1);
 }

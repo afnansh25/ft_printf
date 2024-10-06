@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 17:28:03 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/05 17:31:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/10/06 11:20:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,13 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+int ft_printf_conversion(char specifire, va_list args);
+int ft_putchar(char c);
+int	ft_putnbr(int nb);
+int	ft_putstr(char *str);
+int ft_putptr(void *ptr);
+int ft_putnbr_hex_lower(unsigned int num);
+int ft_putnbr_hex_upper(unsigned int num);
+int ft_putnbr_unsigned(unsigned long nb);
 
 #endif

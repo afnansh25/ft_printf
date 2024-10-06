@@ -6,20 +6,23 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:01:09 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/05 18:01:23 by codespace        ###   ########.fr       */
+/*   Updated: 2024/10/06 10:08:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	int	i;
+	int	p_count;
 
-	i = 0;
-	while (str[i] != '\0')
+	p_count = 0;
+	if(!str)
+		str = "(null)";
+	while (*str != '\0')
 	{
-		write (1, &str[i], 1);
-		i++;
+		p_count += ft_putchar(*str);
+		str++;
 	}
+	return (p_count);
 }

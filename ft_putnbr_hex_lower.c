@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex_lower.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:32:45 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 11:20:38 by codespace        ###   ########.fr       */
+/*   Created: 2024/10/06 10:24:26 by codespace         #+#    #+#             */
+/*   Updated: 2024/10/06 10:57:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int ft_putnbr_hex_lower(unsigned int num)
 {
-    va_list args;
+    char *hexdigit = "0123456789abcdef";
     int p_count;
 
-    va_start(args, format);
     p_count = 0;
-    while (*format)
-    {
-        if(*format == '%' && (*(format + 1) != '\0'))
-        {
-            format++;
-            p_count += ft_printf_conversion(*format, args); 
-        }
-        else
-        {
-            write(1, format, 1);
-            p_count++;
-        }
-    }
-    va_end(args);
-    return(p_count);
+    if (num > 16)
+        p_count += ft_putnbr_hex_lower(num / 16);
+    p_count += ft_putchar(hexdigit[num % 16]);
+    return (p_count);
 }
