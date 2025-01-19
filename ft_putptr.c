@@ -16,6 +16,8 @@ int	ft_putptr(void *ptr)
 {
 	int	c_counter;
 
+	if (ptr == NULL)
+		return (ft_putstr("(nil)"));
 	c_counter = 0;
 	c_counter += ft_putstr("0x");
 	c_counter += ft_putnbr_hex_lower((unsigned long)ptr);

@@ -15,10 +15,14 @@
 
 int	main(void)
 {
-	//char	*str = "AFNAN";
+	// //char	*str = "AFNAN";
 
-	printf("Original: My name is %c, Iam %i years old\n", 'A', 22);
-	ft_printf("My printf: My name is %c, Iam %i years old\n", 'A', 22);
+	// printf("Original: My name is %c, Iam %i years old\n", 'A', 22);
+	// ft_printf("My printf: My name is %c, Iam %i years old\n", 'A', 22);
+
+    void *ptr = NULL;
+    printf("original printf: %p\n", ptr); // Expected system output
+    ft_printf("my ft_printf: %p\n", ptr); // Your function's output
 
 	return (0);
 }

@@ -15,7 +15,7 @@
 int	ft_putchar(int c)
 {
 	int	w_error;
-	
+
 	w_error = write(1, &c, 1);
 	if (w_error == -1)
 		return (-1);
