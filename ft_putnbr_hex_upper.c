@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_hex_upper.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ashaheen <ashaheen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/06 10:24:26 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 10:58:07 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/15 19:24:04 by ashaheen          #+#    #+#             */
+/*   Updated: 2025/01/18 19:05:50 by ashaheen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putnbr_hex_upper(unsigned int num)
+int	ft_putnbr_hex_upper(unsigned long long n)
 {
-    char *hexdigit = "0123456789ABCDEF";
-    int p_count;
+	char	*hexadigit;
+	int		c_counter;
 
-    p_count = 0;
-    if (num > 16)
-        p_count += ft_putnbr_hex_upper(num / 16);
-    p_count += ft_putchar(hexdigit[num % 16]);
-    return (p_count);
+	hexadigit = "0123456789ABCDEF";
+	c_counter = 0;
+	if (n >= 16)
+		c_counter += ft_putnbr_hex_upper(n / 16);
+	c_counter += ft_putchar(hexadigit[n % 16]);
+	return (c_counter);
 }

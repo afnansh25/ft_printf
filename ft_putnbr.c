@@ -3,38 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ashaheen <ashaheen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 17:59:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 10:00:03 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/15 18:48:20 by ashaheen          #+#    #+#             */
+/*   Updated: 2025/01/15 18:55:42 by ashaheen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int nb)
+int	ft_putnbr(int n)
 {
-	int	p_count;
-	
-	p_count = 0;
-	if (nb == -2147483648)
+	int	c_counter;
+
+	c_counter = 0;
+	if (n == -2147483648)
 	{
-		p_count += ft_putstr("-2147483648");
+		c_counter += ft_putstr("-2147483648");
 	}
-	else if (nb < 0)
+	else if (n < 0)
 	{
-		p_count += ft_putchar('-');
-		nb = -nb;
-		p_count += ft_putnbr(nb);
+		c_counter += ft_putchar('-');
+		n = -n;
+		c_counter += ft_putnbr(n);
 	}
-	else if (nb > 9)
+	else if (n > 9)
 	{
-		p_count += ft_putnbr(nb / 10);
-		p_count += ft_putnbr(nb % 10);
+		c_counter += ft_putnbr(n / 10);
+		c_counter += ft_putnbr(n % 10);
 	}
 	else
-	{
-		p_count += ft_putchar(nb + 48);
-	}
-	return (p_count);
+		c_counter += ft_putchar(n + 48);
+	return (c_counter);
 }
+

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ashaheen <ashaheen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 18:59:38 by ashaheen          #+#    #+#             */
-/*   Updated: 2025/01/18 16:47:41 by ashaheen         ###   ########.fr       */
+/*   Created: 2025/01/18 16:29:51 by ashaheen          #+#    #+#             */
+/*   Updated: 2025/01/19 12:22:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int	ft_putnbr_unsigned(unsigned int n)
+int	main(void)
 {
-	int	c_counter;
+	//char	*str = "AFNAN";
 
-	c_counter = 0;
-	if (n > 9)
-	{
-		c_counter += ft_putnbr_unsigned(n / 10);
-		c_counter += ft_putnbr_unsigned(n % 10);
-	}
-	else
-		c_counter += ft_putchar(n + 48);
-	return (c_counter);
+	printf("Original: My name is %c, Iam %i years old\n", 'A', 22);
+	ft_printf("My printf: My name is %c, Iam %i years old\n", 'A', 22);
+
+	return (0);
 }

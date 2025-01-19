@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 18:01:09 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 10:08:04 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/15 18:02:42 by ashaheen          #+#    #+#             */
+/*   Updated: 2025/01/19 12:32:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int	ft_putstr(char *str)
 {
-	int	p_count;
+	int	c_counter;
 
-	p_count = 0;
-	if(!str)
+	c_counter = 0;
+	if (str == NULL)
 		str = "(null)";
-	while (*str != '\0')
+	while (*str)
 	{
-		p_count += ft_putchar(*str);
+		ft_putchar(*str);
 		str++;
+		c_counter++;
 	}
-	return (p_count);
+	return (c_counter);
 }

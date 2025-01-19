@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 18:01:31 by codespace         #+#    #+#             */
-/*   Updated: 2024/10/06 09:54:36 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/15 18:00:37 by ashaheen          #+#    #+#             */
+/*   Updated: 2025/01/19 12:21:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	int	w_error;
+	
+	w_error = write(1, &c, 1);
+	if (w_error == -1)
+		return (-1);
+	return (1);
 }
